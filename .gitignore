@@ -490,4 +490,4 @@ $RECYCLE.BIN/
 
 # The appsettings.json and appsettings.development.json must be configured based on the samples provided in the repository
 appsettings.json
-appsettings.development.json
+appsettings.Development.json
