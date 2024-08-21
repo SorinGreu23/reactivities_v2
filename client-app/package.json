@@ -11,6 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@microsoft/signalr": "^8.0.7",
+    "@types/react-calendar": "^4.1.0",
     "@types/react-datepicker": "^6.2.0",
     "axios": "^1.6.8",
     "date-fns": "^3.6.0",

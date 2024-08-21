@@ -26,6 +26,7 @@ namespace Reactivities.API.Extensions
                 {
                     policy.AllowAnyHeader()
                           .AllowAnyMethod()
+                          .AllowCredentials()
                           .WithOrigins("http://localhost:3000");
                 });
             });
@@ -40,6 +41,7 @@ namespace Reactivities.API.Extensions
             services.AddScoped<IUserAccessor, UserAccessor>();
             services.Configure<CloudinarySettings>(config.GetSection("Cloudinary"));
             services.AddScoped<IPhotoAccessor, PhotoAccessor>();
+            services.AddSignalR();
 
             return services;
         }
