@@ -33,7 +33,7 @@ namespace Reactivities.API.Controllers
 
             var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
 
-            if(result) // TODO: update this to use a proper JWT token for login/authorization
+            if(result)
             {
                 return CreateUserObject(user);
             }
