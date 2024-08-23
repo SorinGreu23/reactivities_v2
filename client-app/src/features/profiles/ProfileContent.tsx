@@ -1,10 +1,11 @@
-import { Tab, TabPane } from "semantic-ui-react";
+import { Tab } from "semantic-ui-react";
 import ProfilePhotos from "./ProfilePhotos";
 import { IProfile } from "../../app/models/profile.model";
 import { observer } from "mobx-react-lite";
 import ProfileAbout from "./ProfileAbout";
 import ProfileFollowings from "./ProfileFollowings";
 import { useStore } from "../../app/stores/store";
+import ProfileActivities from "./ProfileActivities";
 
 interface Props {
   profile: IProfile;
@@ -12,19 +13,19 @@ interface Props {
 
 // eslint-disable-next-line react-refresh/only-export-components
 export default observer(function ProfileContent({ profile }: Props) {
-  const {profileStore} = useStore();
+  const { profileStore } = useStore();
 
   const panes = [
     { menuItem: "About", render: () => <ProfileAbout /> },
     { menuItem: "Photos", render: () => <ProfilePhotos profile={profile} /> },
-    { menuItem: "Events", render: () => <TabPane>Events content</TabPane> },
+    { menuItem: "Events", render: () => <ProfileActivities /> },
     {
       menuItem: "Followers",
       render: () => <ProfileFollowings />,
     },
     {
       menuItem: "Following",
-      render: () => <ProfileFollowings/>,
+      render: () => <ProfileFollowings />,
     },
   ];
 
@@ -33,7 +34,9 @@ export default observer(function ProfileContent({ profile }: Props) {
       menu={{ fluid: true, vertical: true }}
       menuPosition="right"
       panes={panes}
-      onTabChange={(_, data) => profileStore.setActiveTab(data.activeIndex as number)}
+      onTabChange={(_, data) =>
+        profileStore.setActiveTab(data.activeIndex as number)
+      }
     />
   );
 });
