@@ -1,7 +1,7 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Reactivities.Application.Activities;
+using Reactivities.Application.Core;
 using Reactivities.Domain.Entities;
 
 namespace Reactivities.API.Controllers
@@ -9,10 +9,10 @@ namespace Reactivities.API.Controllers
     public class ActivitiesController : BaseApiController
     {
         [HttpGet]
-        public async Task<IActionResult> GetActivities()
+        public async Task<IActionResult> GetActivities([FromQuery]ActivityParams param)
         {
-            var result = await Mediator.Send(new List.Query());
-            return HandleResult(result);
+            var result = await Mediator.Send(new List.Query{Params = param});
+            return HandlePagedResult(result);
         }
 
         [HttpGet("{id}")]
