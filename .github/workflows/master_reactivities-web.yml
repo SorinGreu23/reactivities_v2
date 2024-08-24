@@ -23,6 +23,7 @@ jobs:
 
       - name: Install deps and build react app
         run: |
+          npm install -g vite
           cd client-app
           npm install
           vite build
