@@ -491,3 +491,4 @@ $RECYCLE.BIN/
 # The appsettings.development.json must be configured based on the samples provided in the repository
 appsettings.json
 appsettings.Development.json
+wwwroot
