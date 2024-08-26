@@ -488,6 +488,5 @@ $RECYCLE.BIN/
 *.db-shm
 *.db-wal
 
-# The appsettings.json and appsettings.development.json must be configured based on the samples provided in the repository
-appsettings.json
+# The appsettings.development.json must be configured based on the samples provided in the repository
 appsettings.Development.json
